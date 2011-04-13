@@ -1,0 +1,7 @@
+%h1 Work Examples
+
+%ul#work
+	- @works.each do |w|
+		%li
+			%a(href="/work/#{@work.id}")
+				%img(src="#{@work.screenshots[0].url_small}")

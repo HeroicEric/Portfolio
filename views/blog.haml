@@ -1,0 +1,4 @@
+= @posts.each do |post|
+	%h3
+		%a(href="/post/#{post.id}") #{post.title}
+	%p #{post.body}

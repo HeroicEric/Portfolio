@@ -1,0 +1,26 @@
+%h1 Hello #{@post.title}
+%p #{@post.body}
+%p #{@post.url}
+%p #{@post.id}
+
+%h3 Add a Comment
+%form(action="/comment" method = "POST")
+	
+	%label(for="author") Name:
+	%input(type="text" name="comment[author]")
+	
+	%label(for="body") Comment:
+	%textarea(name="comment[body]")
+	
+	%input(type="hidden" name="post_id" value="#{@post.id}")
+	
+	%input#submit(type="submit" value="Submit")
+
+%h3 Comments
+- unless @post.comments.empty?
+	%h4 Comments
+	%ul
+		- @post.comments.each do |c|
+			%li
+				%a(href="#{c.url}") #{c.author}
+				%p #{c.body}
