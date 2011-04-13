@@ -40,34 +40,6 @@ class Comment
 	belongs_to :post
 end
 
-class Work
-	include DataMapper::Resource
-	
-	property :id,          Serial
-	property :title,       Text
-	property :client,      String
-	property :description, Text
-	property :tech_used,   Text
-	property :thumb,       Integer
-	property :created_at,  DateTime
-	property :updated_at,  DateTime
-	
-	has n, :screenshots
-end
-
-class Screenshot
-	include DataMapper::Resource
-	
-	property :id,          Serial
-	property :alt,         String
-	property :title,       String
-	property :url_small,   String
-	property :url_medium,  String
-	property :url_large,   String
-	
-	belongs_to :work
-end
-
 get '/blog' do
 	@posts = Post.all
 	
@@ -120,44 +92,6 @@ post '/comment' do
  		status 400 # Bad Request(
  		redirect '/blog'
  	end
-end
-
-get '/work' do
-	@work = Work.new(:title => "Fake it Till you Make It", :client => "Quinnipiac University", :description => "This is a fake description for a fake piece of work.", :tech_used => "HTML/CSS, jQuery, Sinatra", :thumb => 0)
-	
-	@screenshot = Screenshot.new(:alt => "Test Alternate Text", :title => "This is an Example Title", :url_small => "http://youfounderic.com/misc/portfolio/img/thumb1.jpg", :url_medium => "http://youfounderic.com/misc/portfolio/img/medium1.jpg", :url_large => "http://youfounderic.com/misc/portfolio/img/large1.png")
-	
-	@work.screenshots << @screenshot
-	
-	@work.save
-	@screenshot.save
-	
-	@works = Work.all
-	
-	haml :work
-end
-
-get '/work/new' do
-	@work = Work.new
-
-	haml :work_new
-end
-
-get '/work/:id' do
-	@work = Work.get(params[:id])
-	
-	@work = Work.new(:title => "Fake it Till you Make It", :client => "Quinnipiac University", :description => "This is a fake description for a fake piece of work.", :tech_used => "HTML/CSS, jQuery, Sinatra", :thumb => 0)
-	
-	@screenshot = Screenshot.new(:alt => "Test Alternate Text", :title => "This is an Example Title", :url_small => "http://youfounderic.com/misc/portfolio/img/thumb1.jpg", :url_medium => "http://youfounderic.com/misc/portfolio/img/medium1.jpg", :url_large => "http://youfounderic.com/misc/portfolio/img/large1.png")
-	
-	@work.screenshots << @screenshot
-	
-	@work.save
-	@screenshot.save
-	
-	@works = Work.all
-	
-	haml :work_details
 end
 
 # Finalize/initialize DB
