@@ -82,7 +82,8 @@ post '/comment' do
 	@post = Post.get(params[:post_id])
 
 	@comment = @post.comments.new(params[:comment])
-	
+
+	puts @comment.author	
 	puts @post.title
 	
  	if @post.save
