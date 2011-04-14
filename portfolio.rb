@@ -9,6 +9,8 @@ DataMapper.setup(:default, ENV['DATABASE_URL'] || "sqlite3://#{Dir.pwd}/portfoli
 # Require Models
 Dir.glob("#{Dir.pwd}/models/*.rb") { |m| require "#{m.chomp}" }
 
+set :haml, :format => :html5 # default for Haml format is :xhtml
+
 class Post
 	include DataMapper::Resource
 	
@@ -38,6 +40,10 @@ class Comment
 	property :created_at, DateTime
 	
 	belongs_to :post
+end
+
+get '/' do
+	haml :home
 end
 
 get '/blog' do

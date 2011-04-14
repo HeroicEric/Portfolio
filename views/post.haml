@@ -1,7 +1,5 @@
 %h1 Hello #{@post.title}
 %p #{@post.body}
-%p #{@post.url}
-%p #{@post.id}
 
 %h3 Add a Comment
 %form(action="/comment" method = "POST")
@@ -21,5 +19,9 @@
 	%ul
 		- @comments.each do |c|
 			%li
-				%a(href="#{c.url}") #{c.author}
+				- if c.url.nil?
+					%span= c.author
+				- else
+					%a(href="#{c.url}") #{c.author}
+
 				%p #{c.body}
