@@ -34,7 +34,7 @@ class Comment
 	property :email,      String
 	property :url,        String
 	property :body,       String
-	property :post_id,    String
+	property :post_id,    Integer # Not necessary, DM auto makes it!
 	property :created_at, DateTime
 	
 	belongs_to :post
@@ -56,7 +56,7 @@ end
 # Creat a new Post
 post '/post' do
 	@post = Post.create(params[:post])
-	
+
 	if @post.save
 		status 201 # Created successfully
 		redirect '/blog'
@@ -70,18 +70,29 @@ end
 # View a Post
 get '/post/:id' do
 	@post = Post.get(params[:id])
+	@comments = @post.comments.all(:order => [:created_at.desc])
 	
 	haml :post
 end
 
-get '/post/edit/:id' do
+# Edit Post
+get '/post/:id/edit' do
 	@post = Post.get(params[:id])
+	
+	haml :post_edit
 end
 
-post '/comment' do
-	@post = Post.get(params[:post_id])
+# Update Post
+put '/post' do
 
-	@comment = @post.comments.new(params[:comment])
+end
+
+# Adds a new comment
+post '/comment' do
+	@comment = Comment.new(params[:comment])
+	@post = Post.get(@comment.post_id)
+	
+	@post.comments << @comment
 
 	puts @comment.author	
 	puts @post.title

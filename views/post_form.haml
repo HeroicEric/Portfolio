@@ -1,0 +1,6 @@
+%label(for="title") Title:
+%input(type="text" name="post[title]" value="#{@post.title}")
+
+%label(for="body") Body:
+%textarea(name="post[body]")
+	=@post.body

@@ -18,6 +18,11 @@ body,h3,h4,h5,h6,.run-in,dt,h1,h2,.pullquote,blockquote,.sidenote h1,aside h1,.p
 /*Size & Vertical Rhythm*/
 body{font-size:87.5%;font-size:14px;line-height:1.5;}
 
+.container {
+	width:800px;
+	margin: 0 auto;
+}
+
 /*HTML Standard Elements*/
 h1,h2,h3,h4,h5,h6{font-weight:500;}
 h1{font-size:2.5em;line-height:1.1;margin:1.3em 0 0;font-weight:bold;font-style:italic;border-top:0.2em solid #000;border-bottom:0.05em solid #ccc;padding:0.3em 0 0.65em;} 
@@ -30,8 +35,6 @@ p,ul,ol,form{margin:1.5em 0 1em;}
 ul{list-style-position:outside;list-style-type:disc;line-height:1.5;}
 li{margin-bottom:0.75em;}
 ol{list-style-position:outside;list-style-type:decimal;}
-blockquote{font-style:italic;margin-right:5em;}
-blockquote:before{font-family:Monaco,Consolas,"Lucida Console",monospace;content:"“";font-size:2.1em;font-style:normal;text-indent:-0.75em;float:left;opacity:0.3;line-height:1.25;}
 cite{display:block;text-transform:uppercase;letter-spacing:0.2em;margin-top:0.75em;font-weight:900;font-style:normal;font-size:0.85em;}
 cite:before{content:"—";margin-left:-1.75em;margin-right:0.5em;opacity:0.3;}
 pre{padding:0.75em;border:1px solid #ccc;background:#ddd;margin:1.5em 0 0;}
