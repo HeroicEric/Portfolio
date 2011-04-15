@@ -1,6 +1,8 @@
-%label(for="title") Title:
-%input(type="text" name="post[title]" value="#{@post.title}")
-
-%label(for="body") Body:
-%textarea(name="post[body]")
-	=@post.body
+%ol
+  %li
+    %label(for="title") Title:
+    %input(type="text" name="title" placeholder="Title Here" value="#{@post.title}")
+  %li
+    %label(for="body") Body:
+    %textarea.ckeditor(name="body")
+      =@post.body

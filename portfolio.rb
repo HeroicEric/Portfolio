@@ -26,6 +26,11 @@ class Post
 	def url
 		"/#{slug}"
 	end
+
+  def self.make_slug(title)
+		title.downcase.gsub(/ /, '_').gsub(/[^a-z0-9_]/, '').squeeze('_')
+	end
+  
 end
 
 class Comment
@@ -61,7 +66,11 @@ end
 
 # Creat a new Post
 post '/post' do
-	@post = Post.create(params[:post])
+	@post = Post.create(
+    :title => params[:title],
+    :slug => Post.make_slug(params[:title]),
+    :body => params[:body]
+  )
 
 	if @post.save
 		status 201 # Created successfully
