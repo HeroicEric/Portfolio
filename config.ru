@@ -1,8 +1,3 @@
-require 'rubygems'
-require 'bundler'
-
-Bundler.require
-
-require 'portfolio.rb'
+require 'portfolio'
 
 run Sinatra::Application

@@ -1,4 +1,4 @@
-rubygems
 sinatra
-data_mapper
+datamapper
+dm-postgres-adapter
 haml
