@@ -1,17 +1,7 @@
 %h1 Add a New Work
 
-%form(:action => "work", :method => "POST")
-	
-	%label(for="title") Title:
-	%input(type="text" name="work[title]" value="#{@work.title}")
-	
-	%label(for="client") Client:
-	%input(type="text" name="work[client]" value="#{@work.client}")
-	
-	%label(for="description") Description:
-	%textarea(name="work[description]" value="#{@work.description}")
-	
-	%label(for="tech_used") Tech Used:
-	%textarea(name="work[tech_used]" value="#{@work.tech_used}")
-	
-	%input#submit(type="submit" value="Submit") or <a href="/work">cancel</a>
+%form(action="/work" method="POST")
+
+  = haml :work_form
+
+  %input#submit(type="submit" value="Submit") or <a href="/work">cancel</a>

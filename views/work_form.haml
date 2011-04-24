@@ -1,0 +1,25 @@
+%ol
+  %li
+    %label(for="title") Title:
+    %input(type="text" name="work[title]" value="#{@work.title}" placeholder="Enter Title")
+  %li
+    %label(for="slug") Slug:
+    %input(type="text" name="work[slug]" value="#{@work.slug}")
+  %li
+    %label(for="classification") Classification:
+    %input(type="text" name="work[classification]" value="#{@work.classification}")
+  %li
+    %label(for="info") Info:
+    %textarea.ckeditor(name="work[info]" value="#{@work.info}")
+      =@work.info
+  %li
+    %label(for="services") Services:
+    %small Comma separated
+    %input(type="text" name="work[services]" value="#{@work.services}")
+  %li
+    %label(for="thumb") Thumb:
+    %input(type="text" name="work[thumb]" value="#{@work.thumb}")
+  %li
+    %label(for="screenshots") Screenshots:
+    %textarea.ckeditor(name="work[screenshots]")
+      =@work.screenshots

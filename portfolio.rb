@@ -7,7 +7,7 @@ DataMapper.setup(:default, ENV['DATABASE_URL'] || "sqlite3://#{Dir.pwd}/portfoli
 
 	
 # Require Models
-Dir.glob("#{Dir.pwd}/models/*.rb") { |m| require "#{m.chomp}" }
+# Dir.glob("#{Dir.pwd}/models/*.rb") { |m| require "#{m.chomp}" }
 
 set :haml, :format => :html5 # default for Haml format is :xhtml
 
@@ -47,14 +47,74 @@ class Comment
 	belongs_to :post
 end
 
+class Work
+  include DataMapper::Resource
+
+  property :id,             Serial
+  property :title,          String
+  property :slug,           String
+  property :info,           Text
+  property :services,       String
+  property :thumb,          String
+  property :screenshots,    Text
+  property :classification, String
+end
+
 get '/' do
-	haml :home
+	@posts = Post.all
+  @work = Work.last
+
+  haml :home
 end
 
 get '/blog' do
 	@posts = Post.all
-	
 	haml :blog
+end
+
+get '/work' do
+  @works = Work.all
+  haml :work
+end
+
+get '/work/new' do
+  @work = Work.new
+  haml :work_new
+end
+
+post '/work' do
+  @work = Work.create(params[:work])
+
+  if @work.save
+		status 201 # Created successfully
+		redirect '/work/' + @work.slug
+	else
+		status 400 # Bad Request(
+		haml :work_new
+	end
+end
+
+get '/work/:slug' do
+  @work = Work.first(:slug => params[:slug])
+  haml :work_details
+end
+
+get '/work/:slug/edit' do
+  @work = Work.first(:slug => params[:slug])
+  haml :work_edit
+end
+
+# Update Work
+put '/work/:slug' do
+  @work = Work.first(:slug => params[:slug])
+
+  if @work.update(params[:work])
+    status 201
+    redirect '/work/' + @work.slug
+  else
+    status 400
+    haml :work_edit
+  end
 end
 
 # Add a new Post

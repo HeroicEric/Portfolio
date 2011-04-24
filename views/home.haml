@@ -2,3 +2,14 @@
   I’m <span class="highlight">Eric</span> and I enjoy beautifully crafted <span class="highlight">user interfaces</span> that work.
   %span.small
     Some of my other interests include <span class="highlight">developing websites</span> and <span class="highlight">web/mobile applications</span>.
+#blog
+  %section.blog-body
+    = @posts.each do |post|
+      %article.post
+        %h2
+          %a(href="/post/#{post.id}") #{post.title}
+        %p #{post.body}
+%section.recent-work
+  %h3 Recent Work
+  %a.work(href="/work/#{@work.slug}")
+    %img(src="#{@work.thumb}")

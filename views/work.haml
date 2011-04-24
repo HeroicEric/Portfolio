@@ -1,7 +1,23 @@
-%h1 Work Examples
+%section#work-all
+  %header
+    %h2 My Work
+    #options
+      %ul#filters
+        %li
+          %a.selected(href="#filter" data-filter="*") All
+        %li
+          %a(href="#filter" data-filter=".web") Websites
+        %li
+          %a(href="#filter" data-filter=".app") Web Apps
+        %li
+          %a(href="#filter" data-filter=".mobile") Mobile
+        %li
+          %a(href="#filter" data-filter=".game") Games
+  #works.clearfix
+    %ul
+      - @works.each do |w|
+        %li
+          %a(class="work #{w.classification}" href="/work/#{w.slug}")
+            %img(src="#{w.thumb}")
 
-%ul#work
-	- @works.each do |w|
-		%li
-			%a(href="/work/#{@work.id}")
-				%img(src="#{@work.screenshots[0].url_small}")
+
