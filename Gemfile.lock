@@ -29,8 +29,6 @@ GEM
     sinatra (1.2.3)
       rack (~> 1.1)
       tilt (>= 1.2.2, < 2.0)
-    sinatra-logger (0.1.1)
-      sinatra (>= 1.0)
     tilt (1.2.2)
 
 PLATFORMS
@@ -44,4 +42,3 @@ DEPENDENCIES
   dm-timestamps
   haml
   sinatra
-  sinatra-logger

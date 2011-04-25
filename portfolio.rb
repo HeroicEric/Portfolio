@@ -7,24 +7,13 @@ require 'dm-core'
 require 'dm-migrations'
 require 'dm-serializer'
 require 'dm-timestamps'
-require 'dm-postgres-adapter'
-require 'sinatra/logger'
 	
 # Require Models
 Dir.glob("#{Dir.pwd}/models/*.rb") { |m| require "#{m.chomp}" }
 
-# Set DM logger location and level
-DataMapper::Logger.new("log/dm.log", :debug)
-
 set :haml, :format => :html5 # default for Haml format is :xhtml
 
-configure :development do
-  DataMapper.setup(:default, ENV['DATABASE_URL'] || "sqlite3://#{Dir.pwd}/development.sqlite3")
-end
-
-configure :production do
-  DataMapper.setup(:default, ENV['DATABASE_URL'] || "sqlite3://#{Dir.pwd}/production.sqlite3")
-end
+DataMapper.setup(:default, ENV['DATABASE_URL'] || "sqlite3://#{Dir.pwd}/portfolio.db")
 
 # Finalize/initialize DB
 DataMapper.finalize
