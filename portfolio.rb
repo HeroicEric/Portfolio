@@ -17,8 +17,12 @@ DataMapper::Logger.new("log/dm.log", :debug)
 
 set :haml, :format => :html5 # default for Haml format is :xhtml
 
-configure do
-  DataMapper.setup(:default, "sqlite3://#{Dir.pwd}/portfolio.sqlite3")
+configure :development do
+  DataMapper.setup(:default, ENV['DATABASE_URL'] || "sqlite3://#{Dir.pwd}/development.db")
+end
+
+configure :production do
+  DataMapper.setup(:default, ENV['DATABASE_URL'] || "sqlite3://#{Dir.pwd}/production.db")
 end
 
 # Finalize/initialize DB
