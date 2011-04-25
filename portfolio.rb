@@ -7,6 +7,7 @@ require 'dm-core'
 require 'dm-migrations'
 require 'dm-serializer'
 require 'dm-timestamps'
+require 'dm-postgres-adapter'
 require 'sinatra/logger'
 	
 # Require Models
