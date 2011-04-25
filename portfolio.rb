@@ -18,13 +18,12 @@ DataMapper::Logger.new("log/dm.log", :debug)
 set :haml, :format => :html5 # default for Haml format is :xhtml
 
 configure do
-  # Setup Database
-  DataMapper.setup(:default, ENV['DATABASE_URL'] || "sqlite3://#{Dir.pwd}/portfolio.sqlite3")
-
-  # Finalize/initialize DB
-  DataMapper.finalize
-  DataMapper::auto_upgrade!
+  DataMapper.setup(:default, "sqlite3://#{Dir.pwd}/portfolio.sqlite3")
 end
+
+# Finalize/initialize DB
+DataMapper.finalize
+DataMapper::auto_upgrade!
 
 get '/' do
 	@posts = Post.all
