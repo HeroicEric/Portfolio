@@ -1,13 +1,8 @@
 require 'rubygems'
-require 'bundler/setup'
-
 require 'sinatra'
 require 'haml'
-require 'dm-core'
-require 'dm-migrations'
-require 'dm-serializer'
-require 'dm-timestamps'
-	
+require 'data_mapper'
+
 # Require Models
 Dir.glob("#{Dir.pwd}/models/*.rb") { |m| require "#{m.chomp}" }
 
@@ -15,7 +10,7 @@ set :haml, :format => :html5 # default for Haml format is :xhtml
 
 DataMapper.setup(:default, ENV['DATABASE_URL'] || "sqlite3://#{Dir.pwd}/portfolio.db")
 
-# Finalize/initialize DB
+# Finalize/initialyize DB
 DataMapper.finalize
 DataMapper::auto_upgrade!
 
