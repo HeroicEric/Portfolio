@@ -1,4 +1,10 @@
 source :rubygems
 gem 'sinatra'
 gem 'haml'
-gem 'datamapper'
+gem 'sinatra'
+gem 'haml'
+gem 'dm-core'
+gem 'dm-migrations'
+gem 'dm-serializer'
+gem 'dm-timestamps'
+gem 'sinatra-logger'

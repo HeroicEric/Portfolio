@@ -2,17 +2,24 @@ require 'rubygems'
 require 'bundler/setup'
 
 require 'sinatra'
-require 'datamapper'
 require 'haml'
+require 'dm-core'
+require 'dm-migrations'
+require 'dm-serializer'
+require 'dm-timestamps'
+require 'sinatra/logger'
 	
 # Require Models
 Dir.glob("#{Dir.pwd}/models/*.rb") { |m| require "#{m.chomp}" }
+
+# Set DM logger location and level
+DataMapper::Logger.new("log/dm.log", :debug)
 
 set :haml, :format => :html5 # default for Haml format is :xhtml
 
 configure do
   # Setup Database
-  DataMapper.setup(:default, ENV['DATABASE_URL'] || "sqlite3://#{Dir.pwd}/portfolio.db")
+  DataMapper.setup(:default, ENV['DATABASE_URL'] || "sqlite3://#{Dir.pwd}/portfolio.sqlite3")
 
   # Finalize/initialize DB
   DataMapper.finalize
