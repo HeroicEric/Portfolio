@@ -1,63 +1,22 @@
 require 'rubygems'
+require 'bundler/setup'
+
 require 'sinatra'
 require 'data_mapper'
 require 'haml'
-
-DataMapper.setup(:default, ENV['DATABASE_URL'] || "sqlite3://#{Dir.pwd}/portfolio.db")
-
 	
 # Require Models
-# Dir.glob("#{Dir.pwd}/models/*.rb") { |m| require "#{m.chomp}" }
+Dir.glob("#{Dir.pwd}/models/*.rb") { |m| require "#{m.chomp}" }
 
 set :haml, :format => :html5 # default for Haml format is :xhtml
 
-class Post
-	include DataMapper::Resource
-	
-	property :id,         Serial
-	property :title,      String
-	property :slug,       String
-	property :body,       Text
-	property :created_at, DateTime
-	property :updated_at, DateTime
-	
-	has n, :comments
-	
-	def url
-		"/#{slug}"
-	end
+configure do
+  # Setup Database
+  DataMapper.setup(:default, ENV['DATABASE_URL'] || "sqlite3://#{Dir.pwd}/portfolio.db")
 
-  def self.make_slug(title)
-		title.downcase.gsub(/ /, '_').gsub(/[^a-z0-9_]/, '').squeeze('_')
-	end
-  
-end
-
-class Comment
-	include DataMapper::Resource
-	
-	property :id,         Serial
-	property :author,     String
-	property :email,      String
-	property :url,        String
-	property :body,       String
-	property :post_id,    Integer # Not necessary, DM auto makes it!
-	property :created_at, DateTime
-	
-	belongs_to :post
-end
-
-class Work
-  include DataMapper::Resource
-
-  property :id,             Serial
-  property :title,          String
-  property :slug,           String
-  property :info,           Text
-  property :services,       String
-  property :thumb,          String
-  property :screenshots,    Text
-  property :classification, String
+  # Finalize/initialize DB
+  DataMapper.finalize
+  DataMapper::auto_upgrade!
 end
 
 get '/' do
@@ -180,7 +139,3 @@ post '/comment' do
  		redirect '/blog'
  	end
 end
-
-# Finalize/initialize DB
-DataMapper.finalize
-DataMapper::auto_upgrade!
