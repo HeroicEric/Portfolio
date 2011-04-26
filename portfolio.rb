@@ -1,12 +1,12 @@
 require 'rubygems'
 require 'sinatra'
-require 'haml'
 require 'data_mapper'
+require 'haml'
 
 # Require Models
 Dir.glob("#{Dir.pwd}/models/*.rb") { |m| require "#{m.chomp}" }
 
-set :haml, :format => :html5 # default for Haml format is :xhtml
+set :haml, { :format => :html5 } # default for Haml format is :xhtml
 
 DataMapper.setup(:default, ENV['DATABASE_URL'] || "sqlite3://#{Dir.pwd}/portfolio.db")
 
