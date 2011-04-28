@@ -9,11 +9,33 @@ Dir.glob("#{Dir.pwd}/models/*.rb") { |m| require "#{m.chomp}" }
 
 set :haml, { :format => :html5 } # default for Haml format is :xhtml
 
+set :username, 'eric'
+set :token, 'thisdoesntmatt3ry3t!'
+set :password, 'swordfish'
+
 DataMapper.setup(:default, ENV['DATABASE_URL'] || "sqlite3://#{Dir.pwd}/portfolio.db")
 
 # Finalize/initialyize DB
 DataMapper.finalize
 DataMapper::auto_upgrade!
+
+helpers do
+  def admin? ; request.cookies[settings.username] == settings.token ; end
+  def protected! ; halt [401, 'Not Authorized'] unless admin? ; end
+end
+
+get '/admin' do
+  haml :admin
+end
+
+post '/login' do
+  if params['username']==settings.username&&params['password']==settings.password
+    response.set_cookie(settings.username,settings.token)
+    redirect '/'
+  else
+    "AIN'T!!!!!"
+  end
+end
 
 get '/' do
 	@posts = Post.all
@@ -55,6 +77,7 @@ get '/work/:slug' do
 end
 
 get '/work/:slug/edit' do
+  protected!
   @work = Work.first(:slug => params[:slug])
   haml :work_edit
 end
