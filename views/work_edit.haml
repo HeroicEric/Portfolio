@@ -1,9 +1,10 @@
-%h1 Edit #{@work.title}
+%section.edit
 
-%form(action="/work/#{@work.slug}" method="POST")
-  %input(type="hidden" name="_method" value="PUT")
+  %h1 Edit #{@work.title}
 
-  = haml :work_form
+  %form.editor(action="/work/#{@work.slug}" method="POST")
+    %input(type="hidden" name="_method" value="PUT")
 
-  %input#submit(type="submit" value="Submit") or <a href="/work">cancel</a>
+    = haml :work_form
 
+    %input#submit(type="submit" value="Submit") or <a href="/work">cancel</a>

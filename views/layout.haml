@@ -21,15 +21,13 @@
     %script(type="text/javascript" src="http://use.typekit.com/yvz3smc.js")
     %script(type="text/javascript")
       try{Typekit.load();}catch(e){}
-    
 
-    %body
-      
-      #container
+    %body.cf
+
+      #container.cf
 
         = haml :header
 
-        #main
-          = yield
-        
+        = yield
+
         = haml :footer

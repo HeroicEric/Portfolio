@@ -2,6 +2,7 @@ require 'rubygems'
 require 'sinatra'
 require 'data_mapper'
 require 'haml'
+require 'digest/md5'
 
 # Require Models
 Dir.glob("#{Dir.pwd}/models/*.rb") { |m| require "#{m.chomp}" }
@@ -16,7 +17,7 @@ DataMapper::auto_upgrade!
 
 get '/' do
 	@posts = Post.all
-  @work = Work.last
+  @works = Work.last(3)
 
   haml :home
 end
@@ -97,38 +98,47 @@ post '/post' do
 end
 
 # View a Post
-get '/post/:id' do
-	@post = Post.get(params[:id])
-	@comments = @post.comments.all(:order => [:created_at.desc])
-	
-	haml :post
+get '/post/:slug' do
+  @post = Post.first(:slug => params[:slug])
+  puts @post
+  @posts = Post.all
+  haml :post
 end
 
 # Edit Post
-get '/post/:id/edit' do
-	@post = Post.get(params[:id])
+get '/post/:slug/edit' do
+	@post = Post.first(:slug => params[:slug])
 	
 	haml :post_edit
 end
 
 # Update Post
-put '/post' do
+put '/post/:slug' do
+  @post = Post.first(:slug => params[:slug])
 
+  if @post.update(
+      :title => params[:title],
+      :slug => params[:slug],
+      :body => params[:body]
+    )
+    status 201
+    redirect '/post/' + @post.slug
+  else
+    status 400
+    haml :post_edit
+  end
 end
 
 # Adds a new comment
 post '/comment' do
 	@comment = Comment.new(params[:comment])
+  @comment.md5 = Digest::MD5.hexdigest(@comment.email.downcase.strip)
 	@post = Post.get(@comment.post_id)
-	
 	@post.comments << @comment
 
-	puts @comment.author	
-	puts @post.title
-	
  	if @post.save
  		status 201 # Created successfully
- 		redirect "/post/#{@post.id}"
+ 		redirect "/post/#{@post.slug}"
  	else
  		status 400 # Bad Request(
  		redirect '/blog'

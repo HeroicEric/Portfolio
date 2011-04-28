@@ -5,55 +5,103 @@ Author: Eric Kelly
 For: His Portfolio Website (youfounderic.com)
 */
 
-/* Text Selection Color */
-::-moz-selection{ background: #fa453c; color:#fff; text-shadow: none; }
-::selection { background:#fa453c; color:#fff; text-shadow: none; }
+/*
+1.ROOT
+2.HEADINGS
+3.TYPOGRAPHY
+4.LINKS
+5.FIGURES & IMAGES
+6.TABLES
+7.FORMS
+8.BANNER header[role="banner"]
+9.NAVIGATION nav[role="navigation"]
+10.CONTENT
+11.MAIN div[role="main"]
+12.COMPLIMENTARY div[role="complementary"]
+13.CONTENTINFO footer[role="contentinfo"]
+14.GLOBAL OBJECTS
+15.VENDOR-SPECIFIC 
+16.TEMPLATE SPECIFICS
+17.MODERNIZR
+*/
 
-/* j.mp/webkit-tap-highlight-color */
-a:link { -webkit-tap-highlight-color: #fa453c; }
-
+/* ROOT */
 body {
 	border-top: 5px solid #585858;
     font-size: 87.5%;
     font-size: 14px;
-    font-family: "museo-sans-1","museo-sans-2",Arial,sans-serif;
-    line-height: 1.5;
+    line-height: 1.5em;
 	background-image: url(/img/bg.gif);
 	color: #a9a9a9;
 }
-strong, em, b, i {
-font-family: Arial, Helvetica, sans-serif; }
-
-a {
-	font-weight: normal;
+body,h3,h4,h5,h6,.run-in,dt,h1,h2,.pullquote,blockquote,.sidenote h1,aside h1,.pullquote,.drop-cap,cite{font-family:"ff-tisa-web-pro-1","ff-tisa-web-pro-2",Georgia,serif;}
+.container {
+	width: 960px;
+	margin: 0 auto;
 }
-a:link {
-	text-decoration: none;
-}
-a:visited { }
-a:active { }
-a:hover {
-background-color: #ffffff;
-text-decoration: underline; }
-table, thead, tbody, tr, th, td {
-font-size: 1em }
 
-h1, h2, h3 {
-font-family: "museo-sans-1","museo-sans-2",Arial,sans-serif;
-font-weight: bold; }
+/* HEADINGS */
+h1,h2,h3,h4,h5,h6{font-weight:500;}
+h1{font-size:2.5em;line-height:1.1;margin:1.3em 0 0;font-weight:bold;font-style:italic;padding:0.3em 0 0.65em;} 
+h2{font-size:1.75em;line-height:1.1;margin:2em 0 0.5em;}
+h1+img,h2+img{margin-top:0.75em;}
+h3{font-size:1.125em;margin-top:0.375em;}
+h4{font-weight:bold;font-size:1em;margin-top:0.5em;}
 
-h1 {
-font-size: 42px;
-font-weight: 900;
-letter-spacing: -0.03em;
-color: #585858;
-text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
-}
+/*----------------------------------
+-- TYPOGRAPHY
+----------------------------------*/
+
+/* Text Selection Color */
+::-moz-selection{ background: #fa453c; color:#fff; text-shadow: none; }
+::selection { background:#fa453c; color:#fff; text-shadow: none; }
+
+/* Standard Elements */
+small{display:block;font-size:0.9em;letter-spacing:
+0.05em;margin:2.2em 0 -0.2em;line-height:1.75;opacity:0.6;}
+p,ul,ol,form{margin:1.5em 0 1em;}
+ul{list-style-position:outside;list-style-type:disc;line-height:1.5;}
+li{margin-bottom:0.75em;}
+ol{list-style-position:outside;list-style-type:decimal;}
+blockquote{font-style:italic;margin-right:5em;}
+blockquote:before{font-family:Monaco,Consolas,"Lucida Console",monospace;content:"“";font-size:2.1em;font-style:normal;text-indent:-0.75em;float:left;opacity:0.3;line-height:1.25;}
+cite{display:block;text-transform:uppercase;letter-spacing:0.2em;margin-top:0.75em;font-weight:900;font-style:normal;font-size:0.85em;}
+cite:before{content:"—";margin-left:-1.75em;margin-right:0.5em;opacity:0.3;}
+pre{padding:0.75em;border:1px solid #ccc;background:#ddd;margin:1.5em 0 0;}
+code,pre code{font-family:Consolas,"Lucida Console",Monaco,monospace;}
+p code,li code,*:not(pre) code{background-color:#ddd;padding:0.15em 0.3em;font-size:0.9em;}
+dl{margin:1.75em 0;}
+dt{margin-top:1.25em;font-size:1.13em;font-weight:700;}
+dd{font-style:italic;font-size:1em;margin-top:1em;margin-right:5em;line-height:1.6;border-left:1px solid #ccc;padding-left:1em;}
+abbr{text-transform:uppercase;font-size:0.9em;letter-spacing:0.1em;}
+p{margin-bottom:0;hyphenate:auto;hyphenate-before:2;hyphenate-after:3;hyphenate-lines:3;orphans:4}
+p span.pullquote{text-indent:0;}
+
+/*Compositional Elements*/
+.kicker{font-size:1.25em;line-height:1.693;margin:-0.35em 0 -0.35em;-webkit-column-count:2;-moz-column-count:2;-webkit-column-gap:1.5em;-moz-column-gap:1.5em;}
+.kicker,.pullquote{font-weight:100;}
+.superscript{font-family:sans-serif;vertical-align:super;font-size:0.75em;margin-right:0.4em;margin-left:0.2em;text-transform:lowercase;font-variant:small-caps;letter-spacing:0.1em;line-height:0;}
+.subscript{font-family:sans-serif;vertical-align:sub;font-size:0.75em;margin-right:0.4em;margin-left:0.2em;text-transform:lowercase;font-variant:small-caps;letter-spacing:0.1em;line-height:0;}
+a.superscript,a.subscript{text-decoration:none;}
+aside,.sidenote{font-style:italic;}
+aside h1,.sidenote h1{text-transform:uppercase;font-size:1.1em;line-height:1.5;font-style:normal;font-weight:900;margin-top:1em;padding-top:0.5em;border-top:3px solid #000;border-bottom:1px solid #ccc;}
+aside p,.sidenote p{line-height:1.7;margin:1.3em 0;font-style:normal;}
+aside ul,aside ol,.sidenote ul,.sidenote ol{margin-top:1.3em;line-height:1.7;}
+aside ul li,aside ol li,.sidenote ul li,.sidenote ol li{margin-bottom:1.3em;}
+.pullquote{font-style:italic;margin:0.5em 1.25em 0.3em 0;padding-top:0.15em;line-height:1.2;display:block;float:left;font-size:1.6em;width:40%;}
+.pullquote:before {font-family:Monaco,Consolas,"Lucida Console",monospace;content:"“";font-size:2em;font-style:normal;text-indent:-0.75em;float:left;opacity:0.3;line-height:1.15;}
+.footnote{border-top:1px solid black;font-size:0.875em;margin-top:3.5em;}
+.footnote li{margin:1.5em 0 1.5em;word-spacing:0.1em;line-height:1.75;}
+.footnote .run-in{text-transform:uppercase;font-size:1em;}
+.caption{font-size:1em;font-style:italic;margin:0.6em 0 -0.2em;opacity:0.6;}
+.run-in{font-style:italic;font-weight:bold;font-size:1.1em;letter-spacing:0.1em;}
+.kicker *::first-line{font-weight:bold;font-style:normal;font-size:1em;letter-spacing:0;}
+.drop-cap{display:block;font-style:normal;font-size:3.75em;float:left;margin:0.16em 0.2em 0 0;line-height:0.67;font-weight:100;background-color:#000;color:#fff;-webkit-border-radius:2.5em;-moz-border-radius:2.5em;border-radius:2.5em;padding:0.3em 0.3em 0.35em;min-width:0.8em;text-align:center;text-shadow:0 1px 0 rgba(0,0,0,0.8);}
+.drop-cap{background-color:rgba(0,0,0,0.33);}
 
 .intro {
-	font: 36px/1em "Myriad Pro";
 	color: #a9a9a9;
-	margin-bottom: 50px;
+	width: 940px;
 }
 .intro .small {
 	font-size: 26px;
@@ -64,33 +112,67 @@ text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
 	color: #585858;
 }
 
-h2 {
-margin-bottom: 10px;
-letter-spacing: -0.03em;
-color: #585858;
-text-transform: uppercase;
-font-size: 20px;
-text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5); }
+/* LINKS */
+a {
+font-weight: normal;
+color: #0A7BC1;
+text-decoration: none; }
 
-#container {
-    width: 940px;
-    margin: 0 auto;
+a, a:link {
+text-decoration: none; }
+
+a:visited { }
+a:active { }
+a:hover {
+text-decoration: underline; color: #fa453c; }
+
+a.sub_active {
+font-weight: normal;
+color: #000000; }
+
+/* j.mp/webkit-tap-highlight-color */
+a:link { -webkit-tap-highlight-color: #fa453c; }
+
+h1 a,h2 a,h3 a,h4 a,h5 a ,h6 a {
+	color: #585858;
+	font-weight: 600;
+}
+
+strong, em, b, i {
+font-family: Arial, Helvetica, sans-serif; }
+
+table, thead, tbody, tr, th, td {
+font-size: 1em }
+
+/* 5.FIGURES & IMAGES */
+/* 6.TABLES */
+
+/* FORMS */
+.edit form {
+	width: 940px;
+}
+
+.edit .small {
+	width: 400px;
 }
 
 /* HEADER */
 #header {
-	height: 155px;
-	border-bottom: 5px solid #e1e1e1;
-	margin-bottom: 50px;
+	width: 940px;
+	margin: 0 auto 20px;
+}
+#header h1 {
+	margin:  0;
 }
 #logo {
 	float: left;
 	margin-top: 70px;
 	color: #585858;
 	text-decoration: none;
-	font: 900 42px "museo-sans-1","museo-sans-2",Arial,sans-serif;
 	text-transform: UPPERCASE;
 }
+
+/* NAVIGATION */
 #nav ul {
 	float: right;
 	width: auto;
@@ -126,26 +208,189 @@ text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5); }
 	border-bottom-right-radius: 3px;
 	border-bottom-left-radius: 3px;
 }
-#nav li a:active {
+#nav li a.active {
 	background: #fa453c;
 	padding: 90px 0 10px 0;
 }
 
 /* MAIN */
-#main {
+.home {
+	margin-bottom: 50px;
+}
+.page {
+	border-top: 5px solid #E1E1E1;
+	margin-bottom: 50px;
+}
+
+/* RECENT WORK */
+.recent-work-container {
+	border-top: 5px solid #e1e1e1;
+	border-bottom: 5px solid #E1E1E1;
+	padding-bottom: 20px;
+	padding-top: 30px;
+	background: #e7e9e9;
+	width: 100%;
+}
+.recent-work {
+	width: 940px;
+	margin: 0 auto;
+}
+.recent-work ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+.recent-work li {
+	display: inline;
 	float: left;
+}
+
+/* BLOG */
+#blog {
+	width: 720px;
+	float: left;
+}
+.post {
+	float: left;
+	margin-right: ;
+}
+.post .meta {
+	float: left;
+	width: 120px;
+	margin-right: 30px;
+	margin-top: 4.7em;
+}
+.post .meat {
+	float: left;
+	width: 570px;
+}
+.post h2 a {
+	color: #585858;
+}
+.post time {
+	margin-bottom: 0px;
+	color: #ffffff;
+	font-weight: 600;
+	text-transform: ;
+	background: #585858;
+	padding: 3px 5px;
+	text-shadow:0 1px 0 rgba(0,0,0,0.4);
+	
+	-webkit-box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
+	-moz-box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
+	box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
+	
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+}
+.post .comments-preview {
+	border-top: 3px solid #E1E1E1;
+	padding-top: 1em;
+}
+.post .comments-preview a {
+	color: #A1A1A1;
+}
+
+/* COMMENTS */
+.comments {
+	margin-left: 150px;
+}
+.comments h3 {
+	font-size: 1.5em;
+	font-weight: 600;
+}
+.comments ol {
+	list-style: none;
+}
+.comments input {
+	float: left;
+	margin-right: 20px;
+	height: 36px;
+	margin-bottom: 20px;
+	border: 1px solid #a2907c;
+	border: 1px solid rgba(0,0,0,0.2);
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	padding-left: 10px;
+	padding-right: 10px;
+	font-size: 14px;
+	box-shadow:inset 1px 1px 2px rgba(0,0,0,0.1);
+	-moz-box-shadow:inset 1px 1px 2px rgba(0,0,0,0.1);
+	-webkit-box-shadow:inset 1px 1px 2px rgba(0,0,0,0.1);
+	background: #c4b3a3;
+	background: rgba(0,0,0,0.1);
+}
+.comments #submit {
+	background: #585858;
+	color: #FFFFFF;
+	-webkit-box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
+	-moz-box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
+	box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
+}
+.comments textarea {
+	float: left;
+	margin-right: 40px;
+	height: 120px;
+	width: 520px;
+	margin-bottom: 15px;
+	border: 1px solid #a2907c;
+	border: 1px solid rgba(0,0,0,0.2);
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	padding:10px;
+	font-size: 14px;
+	box-shadow:inset 1px 1px 2px rgba(0,0,0,0.1);
+	-moz-box-shadow:inset 1px 1px 2px rgba(0,0,0,0.1);
+	-webkit-box-shadow:inset 1px 1px 2px rgba(0,0,0,0.1);
+	background: #c4b3a3;
+	background: rgba(0,0,0,0.1);
+}
+.comments .list {
 	clear: both;
 }
-
-#blog .blog-body {
+.comment {
 	float: left;
-	width: 590px;
-	margin-right: 30px;
+	background: #E1E1E1;
+
+	border: 1px solid #a2907c;
+	border: 1px solid rgba(0,0,0,0.2);
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	padding: 10px;
+	font-size: 14px;
+	box-shadow:inset 1px 1px 2px rgba(0,0,0,0.1);
+	-moz-box-shadow:inset 1px 1px 2px rgba(0,0,0,0.1);
+	-webkit-box-shadow:inset 1px 1px 2px rgba
+}
+.comment img {
+	border: 10px solid #ffffff;
+	margin-right: 15px;
+	-box-shadow: 0px 2px 5px #CCC;
+	-webkit-box-shadow: 0px 2px 5px #CCC;
+	-moz-box-shadow: 0px 2px 5px #CCC;
+	float: left;
+}
+.comment .meat {
+	float: right;
+	width: 405px;
 }
 
-.recent-work {
-	float: left;
-	width: 320px;
+/* ASIDE */
+aside {
+	margin-top: 1em;
+	float: right;
+	width: 190px;
+}
+aside ul {
+	list-style: none;
+	line-height: 1.2em;
+}
+
+aside li a {
+	color: #A1A1A1;
 }
 
 /* WORK */
@@ -153,10 +398,13 @@ text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5); }
 	float: left;
 	margin-right: 30px;
 }
-
+#options {
+	margin: ;
+	float: left;
+	margin-top: 2.3em;
+}
 #filters {
 	list-style-type: none;
-	line-height: 36px;
 }
 #filters li {
 	display:inline;
@@ -164,7 +412,6 @@ text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5); }
 }
 #filters li a {
 	color: #a9a9a9;
-	padding-top: 1px;
 	padding-left: 3px;
 	padding-right: 3px;
 }
@@ -182,6 +429,9 @@ text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5); }
 	-webkit-box-shadow: 0px 2px 5px #CCC;
 	-moz-box-shadow: 0px 2px 5px #CCC;
 }
+.work .img:hover {
+	background: red;
+}
 #works a:hover {
 	background: none;
 }
@@ -191,7 +441,7 @@ text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5); }
 	width: 300px;
 	margin-right: 40px;
 }
-#work .screenshots {
+#work .images {
 	float: left;
 	width: 600px;
 }
@@ -199,11 +449,10 @@ text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5); }
 /* FOOTER */
 footer {
 	clear: both;
-	float: left;
-	width: 940px;
 	border-top: 5px solid #e1e1e1;
-	margin-top: 40px;
-	padding-top: 20px;
+}
+footer ul{
+	list-style: none;
 }
 
 /* Start: Recommended Isotope styles */
@@ -242,9 +491,19 @@ footer {
 
 /* End: Recommended Isotope styles */
 
-/* The Magnificent Clearfix: Updated to prevent margin-collapsing on child elements.
-   j.mp/bestclearfix */
-.clearfix:before, .clearfix:after { content: "\0020"; display: block; height: 0; overflow: hidden; }
-.clearfix:after { clear: both; }
-/* Fix clearfix: blueprintcss.lighthouseapp.com/projects/15318/tickets/5-extra-margin-padding-bottom-of-page */
-.clearfix { zoom: 1; }
+/* Micro Clearfix by Nicolas Gallagher */
+/* http://nicolasgallagher.com  */
+
+/* For modern browsers */
+.cf:before,
+.cf:after {
+    content:"";
+    display:table;
+}
+.cf:after {
+    clear:both;
+}
+/* For IE 6/7 (trigger hasLayout) */
+.cf {
+    zoom:1;
+}
