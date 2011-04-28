@@ -1,11 +1,13 @@
 .page.container.cf
   %section.work-info
     %section.details
-      %h2 #{@work.title}
-      %h4 Info
+      %h1 #{@work.title}
       %p #{@work.info}
-      %h4 Technology
-      %p #{@work.services}
+      %h2 Services
+      - unless @work.services.empty?
+        %ul
+          - @work.services.split.each do |s|
+            %li= s
 
     %section.images
       %p #{@work.screenshots}

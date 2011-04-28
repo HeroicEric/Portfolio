@@ -1,7 +1,7 @@
 /* @override http://localhost:9393/css/style.css */
 /*
 Author: Eric Kelly
-For: His Portfolio Website (youfounderic.com)
+For: His Portfolio Website (http://erickel.ly)
 */
 
 /* ROOT */
@@ -42,6 +42,7 @@ h5,
 h6 {  font-weight: 500 }
 h1 {
   font-size: 2.5em;
+  color: #585858;
   line-height: 1.1;
   margin: 1.3em 0 0;
   font-weight: bold;
@@ -611,17 +612,36 @@ aside {
   -webkit-box-shadow: 0px 2px 5px #CCC;
   -moz-box-shadow: 0px 2px 5px #CCC;
 }
-.work .img:hover {  background: red }
 /* WORK DETAILS */
-#work .details {
+.work-info {
   float: left;
-  width: 300px;
-  margin-right: 40px;
+  width: 960px;
 }
-#work .images {
+.work-info .details {
   float: left;
-  width: 600px;
+  width: 310px;
+  margin-right: 30px;
+  margin-left: 10px;
 }
+.work-info .details h1 {
+  margin-bottom: -0.6em;
+}
+.work-info ul {
+	list-style: none;
+}
+.work-info .images {
+  float: right;
+  width: 580px;
+  margin-top: 2em;
+}
+.work-info .images img {
+  border: 10px solid #ffffff;
+  margin: 6px;
+  -box-shadow: 0px 2px 5px #CCC;
+  -webkit-box-shadow: 0px 2px 5px #CCC;
+  -moz-box-shadow: 0px 2px 5px #CCC;
+}
+
 /* FOOTER */
 footer {
   clear: both;
