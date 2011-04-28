@@ -8,7 +8,7 @@
   %li
     %label(for="classification") Classification:
     %input(type="text" name="work[classification]" value="#{@work.classification}")
-  %li
+  %li.small
     %label(for="info") Info:
     %textarea.ckeditor(name="work[info]" value="#{@work.info}")
       =@work.info

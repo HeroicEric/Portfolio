@@ -9,4 +9,6 @@ class Work
   property :thumb,          String
   property :screenshots,    Text
   property :classification, String
+
+  has n, :images
 end

@@ -1,27 +1,39 @@
-%h1 Hello #{@post.title}
-%p #{@post.body}
+.page.container.cf
+  #blog
+    %article.post
+      %section.meta
+        %time(datetime="#{@post.created_at}") #{@post.date}
+      %section.meat
+        %header
+          %h1 #{@post.title}
+        %p #{@post.body}
+    %section.comments
+      %h3 Got something to say?
+      %form(action="/comment" method="POST")
+        %ol
+          %li
+            %input(type="text" name="comment[author]" placeholder="Name")
+          %li
+            %input(type="text" name="comment[email]" placeholder="Email")
+          %li
+            %input(type="text" name="comment[url]" placeholder="Website")
+          %li
+            %textarea(name="comment[body]" placeholder="Tell me here.")
+          %li
+            %input(type="hidden" name="comment[post_id]" value="#{@post.id}")
+          %li
+            %input#submit(type="submit" value="Submit")
+      - unless @post.comments.empty?
+        %section.list
+          %ol
+            - @post.comments.each do |c|
+              %li.comment
+                %img(src="#{c.grav_image}")
+                %section.meat
+                  %cite
+                    - unless c.url.nil?
+                      %a(href="#{c.url}")
+                        #{c.author}
+                  %p #{c.body}
 
-%h3 Add a Comment
-%form(action="/comment" method = "POST")
-	
-	%label(for="author") Name:
-	%input(type="text" name="comment[author]")
-	
-	%label(for="body") Comment:
-	%textarea(name="comment[body]")
-	
-	%input(type="hidden" name="comment[post_id]" value="#{@post.id}")
-	
-	%input#submit(type="submit" value="Submit")
-
-- unless @comments.empty?
-	%h3 Comments
-	%ul
-		- @comments.each do |c|
-			%li
-				- if c.url.nil?
-					%span= c.author
-				- else
-					%a(href="#{c.url}") #{c.author}
-
-				%p #{c.body}
+  = haml :sidebar

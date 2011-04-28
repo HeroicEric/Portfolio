@@ -1,0 +1,8 @@
+%aside
+  - unless @posts.empty?
+    %section.recent-posts
+      %h2 Recent Posts
+      %ul
+        - @posts.last(3).each do |post|
+          %li
+            %a(href="/post/#{post.slug}") #{post.title}

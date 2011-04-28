@@ -1,4 +1,16 @@
-= @posts.each do |post|
-	%h3
-		%a(href="/post/#{post.id}") #{post.title}
-	%p #{post.body}
+- unless @posts.empty?
+  .page.container.cf
+    #blog
+      - @posts.each do |post|
+        %article.post
+          %section.meta
+            %time(datetime="#{post.created_at}") #{post.date}
+          %section.meat
+            %header
+              %h1
+                %a(href="/post/#{post.slug}") #{post.title}
+            %p #{post.body}
+            %section.comments-preview
+              %a(href="#") #{post.comments.count} Comments
+
+    = haml :sidebar
