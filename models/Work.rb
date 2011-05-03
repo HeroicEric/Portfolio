@@ -6,7 +6,7 @@ class Work
   property :slug,           String
   property :info,           Text
   property :services,       String
-  property :thumb,          String
+  property :thumb,          String, :length => 1024
   property :screenshots,    Text
   property :classification, String
 
