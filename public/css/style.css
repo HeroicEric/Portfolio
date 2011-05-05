@@ -11,9 +11,11 @@ body {
   font-size: 14px;
   line-height: 1.5em;
   background-image: url(/img/bg.gif);
-  color: #a9a9a9;
+  color: #a4a4a4;
 }
-body,h3,h4,h5,h6,.run-in,dt,h1,h2,.pullquote,blockquote,.sidenote h1,aside h1,.pullquote,.drop-cap,cite{font-family:"ff-tisa-web-pro-1","ff-tisa-web-pro-2",Georgia,serif;}
+body,h3,h4,h5,h6,.run-in,dt,h1,h2,.pullquote,blockquote,.sidenote h1,aside h1,.pullquote,.drop-cap,cite{
+	font-family:"ff-tisa-web-pro-1","ff-tisa-web-pro-2",Georgia,serif;
+}
 cite:before {
   content: "—";
   margin-left: -1.75em;
@@ -39,19 +41,16 @@ h2,
 h3,
 h4,
 h5,
-h6 {  font-weight: 500 }
+h6 {
+	font-style: italic;
+}
 h1 {
-  font-size: 2.5em;
+ 	font-size: 2.5em;
+  margin-bottom: 30px;
   color: #585858;
-  line-height: 1.1;
-  margin: 1.3em 0 0;
-  font-weight: bold;
-  font-style: italic;
-  padding: 0.3em 0 0.65em;
 }
 h2 {
   font-size: 1.75em;
-  line-height: 1.1;
   margin: 2em 0 0.5em;
 }
 h1+img,
@@ -214,22 +213,6 @@ aside ul li,
 aside ol li,
 .sidenote ul li,
 .sidenote ol li {  margin-bottom: 1.3em }
-body,
-h3,
-h4,
-h5,
-h6,
-.run-in,
-dt,
-h1,
-h2,
-.pullquote,
-blockquote,
-.sidenote h1,
-aside h1,
-.pullquote,
-.drop-cap,
-cite {  font-family: "ff-tisa-web-pro-1","ff-tisa-web-pro-2",Georgia,serif }
 .pullquote:before {
   font-family: Monaco,Consolas,"Lucida Console",monospace;
   content: "“";
@@ -380,14 +363,14 @@ td {  font-size: 1em }
   width: 940px;
   margin: 0 auto;
 }
-#header h1 {  margin: 0 }
 #logo {
+	color: #585858;
   float: left;
   margin-top: 80px;
-  color: #585858;
   text-decoration: none;
-  font-size: 18px;
   text-shadow: rgba(255, 255, 255, 0.5) 0 -2px 0, rgba(0, 0, 0, 0.3) 0 1px 0;
+  font-size: 1.4em;
+  margin-bottom: 10px;
 }
 /* NAVIGATION */
 #nav ul {
@@ -462,7 +445,7 @@ td {  font-size: 1em }
 }
 .post {
   float: left;
-  margin-right: ;
+  padding-top: 70px;
 }
 .post .comments-preview {
   border-top: 3px solid #E1E1E1;
@@ -477,7 +460,6 @@ td {  font-size: 1em }
   float: left;
   width: 120px;
   margin-right: 30px;
-  margin-top: 4.7em;
 }
 .post time {
   margin-bottom: 0px;
@@ -622,9 +604,7 @@ aside {
   width: 310px;
   margin-right: 30px;
   margin-left: 10px;
-}
-.work-info .details h1 {
-  margin-bottom: -0.6em;
+  margin-top: 50px;
 }
 .work-info ul {
 	list-style: none;
@@ -632,7 +612,8 @@ aside {
 .work-info .images {
   float: right;
   width: 580px;
-  margin-top: 2em;
+  margin-top: 20px;
+  margin-right: 10px;
 }
 .work-info .images img {
   border: 10px solid #ffffff;
