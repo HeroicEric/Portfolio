@@ -2,6 +2,7 @@ require 'rubygems'
 require 'sinatra'
 require 'data_mapper'
 require 'haml'
+require 'dm-sqlite-adapter'
 require 'digest/md5'
 
 # Require Models
