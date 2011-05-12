@@ -3,6 +3,10 @@
 
     %h1 Edit #{@work.title}
 
+    %form(action="/work/#{@work.slug}" method="post")
+      %input(type="hidden" name="_method" value="DELETE")
+      %input(type="submit" value="Delete")
+
     %form.editor(action="/work/#{@work.slug}" method="POST")
       %input(type="hidden" name="_method" value="PUT")
 

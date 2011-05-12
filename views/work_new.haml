@@ -1,7 +1,8 @@
-%h1 Add a New Work
+.page.container.cf
+  %h1 Add a New Work
 
-%form(action="/work" method="POST")
+  %form(action="/work" method="POST")
 
-  = haml :work_form
+    = haml :work_form
 
-  %input#submit(type="submit" value="Submit") or <a href="/work">cancel</a>
+    %input#submit(type="submit" value="Submit") or <a href="/work">cancel</a>

@@ -22,8 +22,7 @@ class Post
     day = created_at.day
     month = created_at.month
     year = created_at.year
-    
-    #TODO: Get only Month Day, Year
+
     created_at.strftime(fmt='%b %d, %Y')
   end
 end

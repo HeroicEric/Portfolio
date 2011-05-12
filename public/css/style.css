@@ -13,7 +13,7 @@ body {
   background-image: url(/img/bg.gif);
   color: #a4a4a4;
 }
-body,h3,h4,h5,h6,.run-in,dt,h1,h2,.pullquote,blockquote,.sidenote h1,aside h1,.pullquote,.drop-cap,cite{
+body,.run-in,dt,.pullquote,blockquote,.sidenote h1,aside h1,.pullquote,.drop-cap,cite{
 	font-family:"ff-tisa-web-pro-1","ff-tisa-web-pro-2",Georgia,serif;
 }
 cite:before {
@@ -29,10 +29,9 @@ h4 a,
 h5 a,
 h6 a {
   color: #585858;
-  font-weight: 600;
 }
 .container {
-  width: 960px;
+  width: 940px;
   margin: 0 auto;
 }
 /* HEADINGS */
@@ -42,21 +41,23 @@ h3,
 h4,
 h5,
 h6 {
-	font-style: italic;
+	font-family: "league-gothic-1", "league-gothic-2";
+	text-transform: uppercase;
 }
 h1 {
- 	font-size: 2.5em;
+ 	font-size: 3.0em;
   margin-bottom: 30px;
   color: #585858;
 }
 h2 {
-  font-size: 1.75em;
+  font-size: 2.55em;
+  color: #585858;
   margin: 2em 0 0.5em;
 }
 h1+img,
 h2+img {  margin-top: 0.75em }
 h3 {
-  font-size: 1.125em;
+  font-size: 2.2em;
   margin-top: 0.375em;
 }
 h4 {
@@ -368,9 +369,14 @@ td {  font-size: 1em }
   float: left;
   margin-top: 80px;
   text-decoration: none;
-  text-shadow: rgba(255, 255, 255, 0.5) 0 -2px 0, rgba(0, 0, 0, 0.3) 0 1px 0;
   font-size: 1.4em;
   margin-bottom: 10px;
+}
+#logo h1 {
+  font-size: 3.5em;
+}
+#logo h1 .light {
+  color: #A4A4A4;
 }
 /* NAVIGATION */
 #nav ul {
@@ -378,6 +384,7 @@ td {  font-size: 1em }
   width: auto;
   margin: 0;
   letter-spacing: 1px;
+  font-size: 1.55em;
 }
 #nav li {
   display: inline;
@@ -391,10 +398,10 @@ td {  font-size: 1em }
   display: block;
   float: left;
   width: 70px;
+  font-family: "league-gothic-1", "league-gothic-2";
   color: #ffffff;
   background: #585858;
   margin-left: 10px;
-  padding: 60px 0 10px 0;
   text-align: center;
   text-decoration: none;
   text-transform: UPPERCASE;
@@ -409,6 +416,7 @@ td {  font-size: 1em }
   border-top-right-radius: 0px;
   border-bottom-right-radius: 3px;
   border-bottom-left-radius: 3px;
+  padding: 60px 0 4px;
 }
 /* MAIN */
 .home {  margin-bottom: 50px }
@@ -459,25 +467,26 @@ td {  font-size: 1em }
 .post .meta {
   float: left;
   width: 120px;
+  font-family: "league-gothic-1", "league-gothic-2";
+  text-transform: UPPERCASE;
   margin-right: 30px;
 }
 .post time {
   margin-bottom: 0px;
   color: #ffffff;
-  font-weight: 600;
-  text-transform: ;
   background: #585858;
-  padding: 3px 5px;
+  padding: 3px 10px;
   text-shadow: 0 1px 0 rgba(0,0,0,0.4);
   -webkit-box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
   -moz-box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
   -moz-border-radius: 3px;
   border-radius: 3px;
+  font-size: 2em;
 }
 .post h2 a {  color: #585858 }
 /* COMMENTS */
-.comments {  margin-left: 150px }
+.comments {  margin-left: 150px; float:left; }
 .comments textarea {
   float: left;
   margin-right: 40px;
@@ -525,10 +534,6 @@ td {  font-size: 1em }
   background: rgba(0,0,0,0.1);
 }
 .comments ol {  list-style: none }
-.comments h3 {
-  font-size: 1.5em;
-  font-weight: 600;
-}
 .comment {
   float: left;
   background: #E1E1E1;
@@ -555,16 +560,24 @@ td {  font-size: 1em }
   -moz-box-shadow: 0px 2px 5px #CCC;
   float: left;
 }
-/* ASIDE */
-aside {
-  margin-top: 1em;
+/* SIDEBAR */
+.sidebar {
+  margin-top: 70px;
   float: right;
   width: 190px;
+  font-style: normal;
+}
+.sidebar h2 {
+  margin-top:0px;
 }
 /* WORK */
+#work-all header {
+  float: left;
+}
 #work-all h2 {
   float: left;
   margin-right: 30px;
+  margin-top: 50px;
 }
 #options {
   margin: ;
@@ -585,7 +598,9 @@ aside {
   padding-left: 3px;
   padding-right: 3px;
 }
-#works {  width: 940px }
+#works {  width: 940px;
+  margin-top: 30px;
+}
 #works a:hover {  background: none }
 .work img {
   border: 10px solid #ffffff;
@@ -598,6 +613,9 @@ aside {
 .work-info {
   float: left;
   width: 960px;
+}
+.work-info h1 {
+  line-height: 1em;
 }
 .work-info .details {
   float: left;
@@ -623,6 +641,12 @@ aside {
   -moz-box-shadow: 0px 2px 5px #CCC;
 }
 
+.about {
+	padding-top: 50px;
+}
+.about ul {
+  list-style: none;
+}
 /* FOOTER */
 footer {
   clear: both;

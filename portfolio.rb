@@ -40,9 +40,18 @@ end
 
 get '/' do
 	@posts = Post.all
-  @works = Work.last(3)
+  @works = []
+  @works << Work.first(:slug => "telrepco")
+  
+  Work.last(2).each do |w|
+    @works << w
+  end
 
   haml :home
+end
+
+get '/about' do
+  haml :about
 end
 
 get '/blog' do
@@ -70,6 +79,11 @@ post '/work' do
 		status 400 # Bad Request(
 		haml :work_new
 	end
+end
+
+delete '/work/:slug' do
+  Work.first(:slug => params[:slug]).destroy
+  redirect '/work'
 end
 
 get '/work/:slug' do
