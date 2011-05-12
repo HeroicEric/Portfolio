@@ -11,6 +11,7 @@ body {
   line-height: 1.5em;
   background-image: url(/img/bg.gif);
   color: #a4a4a4;
+  min-width: 960px;
 }
 body,.run-in,dt,.pullquote,blockquote,.sidenote h1,aside h1,.pullquote,.drop-cap,cite{
 	font-family:"ff-tisa-web-pro-1","ff-tisa-web-pro-2",Georgia,serif;
