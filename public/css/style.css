@@ -41,7 +41,7 @@ h3,
 h4,
 h5,
 h6 {
-	font-family: "league-gothic-1", "league-gothic-2";
+	font-family: "league-gothic-1","league-gothic-2",sans-serif;
 	text-transform: uppercase;
 }
 h1 {
@@ -398,7 +398,7 @@ td {  font-size: 1em }
   display: block;
   float: left;
   width: 70px;
-  font-family: "league-gothic-1", "league-gothic-2";
+  font-family: "league-gothic-1","league-gothic-2",sans-serif;
   color: #ffffff;
   background: #585858;
   margin-left: 10px;
@@ -467,7 +467,7 @@ td {  font-size: 1em }
 .post .meta {
   float: left;
   width: 120px;
-  font-family: "league-gothic-1", "league-gothic-2";
+  font-family: "league-gothic-1","league-gothic-2",sans-serif;
   text-transform: UPPERCASE;
   margin-right: 30px;
 }
@@ -643,6 +643,17 @@ td {  font-size: 1em }
 
 .about {
 	padding-top: 50px;
+}
+.about #pic {
+  float: left;
+  width: 200px;
+}
+#contact {
+  float: left;
+}
+#about-body {
+  float: right;
+  width: 740px;
 }
 .about ul {
   list-style: none;
