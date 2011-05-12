@@ -26,11 +26,9 @@
     %body.cf
 
       #outline
+ 
+        = haml :header
 
-        #container.cf
+        = yield
 
-          = haml :header
-
-          = yield
-
-          = haml :footer
+        = haml :footer

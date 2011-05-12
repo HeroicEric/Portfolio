@@ -434,7 +434,6 @@ td {  font-size: 1em }
   padding-bottom: 20px;
   padding-top: 30px;
   background: #e7e9e9;
-  width: 100%;
 }
 .recent-work {
   width: 940px;
@@ -601,7 +600,9 @@ td {  font-size: 1em }
   padding-left: 3px;
   padding-right: 3px;
 }
-#works {  width: 940px;
+#works {  
+float: left;
+width: 940px;
   margin-top: 30px;
 }
 #works a:hover {  background: none }
