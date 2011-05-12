@@ -6,7 +6,6 @@ For: His Portfolio Website (http://erickel.ly)
 
 /* ROOT */
 body {
-  border-top: 5px solid #585858;
   font-size: 87.5%;
   font-size: 14px;
   line-height: 1.5em;
@@ -16,6 +15,10 @@ body {
 body,.run-in,dt,.pullquote,blockquote,.sidenote h1,aside h1,.pullquote,.drop-cap,cite{
 	font-family:"ff-tisa-web-pro-1","ff-tisa-web-pro-2",Georgia,serif;
 }
+#outline {
+  border-top: 5px solid #585858;
+}
+
 cite:before {
   content: "—";
   margin-left: -1.75em;
