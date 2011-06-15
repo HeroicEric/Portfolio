@@ -5,4 +5,4 @@ gem 'datamapper'
 gem 'haml'
 gem 'dm-sqlite-adapter'
 gem 'dm-postgres-adapter'
-gem 'maruku'asda
+gem 'maruku'
