@@ -15,7 +15,7 @@ set :password, 'swordfish'
 
 DataMapper.setup(:default, ENV['DATABASE_URL'] || "sqlite3://#{Dir.pwd}/portfolio.db")
 
-# Finalize/initialyize DB
+# Finalize/initialize DB
 DataMapper.finalize
 DataMapper::auto_upgrade!
 
