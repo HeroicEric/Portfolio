@@ -1,14 +1,13 @@
 require 'rubygems'
-require 'sinatra'
-require 'data_mapper'
-require 'haml'
-require 'dm-sqlite-adapter'
+require 'bundler'
+Bundler.require
+
 require 'digest/md5'
 
 # Require Models
 Dir.glob("#{Dir.pwd}/models/*.rb") { |m| require "#{m.chomp}" }
 
-set :haml, { :format => :html5 } # default for Haml format is :xhtml
+set :haml, { :format => :html5, :ugly => true } # default for Haml format is :xhtml
 
 set :username, 'eric'
 set :token, 'thisdoesntmatt3ry3t!'
@@ -42,7 +41,7 @@ get '/' do
 	@posts = Post.all
   @works = []
   @works << Work.first(:slug => "telrepco")
-  
+
   Work.last(2).each do |w|
     @works << w
   end
@@ -58,6 +57,10 @@ get '/blog' do
 	@posts = Post.all
 	haml :blog
 end
+
+############################
+## WORK ####################
+############################
 
 get '/work' do
   @works = Work.all
@@ -110,6 +113,10 @@ put '/work/:slug' do
   end
 end
 
+############################
+## POST ####################
+############################
+
 # Add a new Post
 get '/post/new' do
 	@post = Post.new
@@ -117,7 +124,7 @@ get '/post/new' do
 	haml :post_new
 end
 
-# Creat a new Post
+# Create a new Post
 post '/post' do
 	@post = Post.create(
     :title => params[:title],
@@ -164,6 +171,20 @@ put '/post/:slug' do
   else
     status 400
     haml :post_edit
+  end
+end
+
+delete '/post/:slug' do
+  @post = Post.first(:slug => params[:slug])
+  @post.comments.destroy
+  @post.destroy
+
+  if @post.destroy
+    status 201
+    redirect "/blog"
+  else
+    status 400
+    redirect '/post/' + @post.slug + '/edit'
   end
 end
 

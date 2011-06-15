@@ -1,7 +1,9 @@
 %ol
   %li
-    %label(for="title") Title:
+    %label(for="title") Title
+    %br
     %input(type="text" name="title" placeholder="Title Here" value="#{@post.title}")
   %li
-    %label(for="body") Body:
-    %textarea(name="body" rows="10" cols="40")= @post.body
+    %label(for="body") Body
+    %br
+    %textarea.body(name="body")= @post.body

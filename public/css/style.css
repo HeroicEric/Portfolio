@@ -107,8 +107,8 @@ p code,
 li code,
 *:not(pre) code {
   background-color: #ddd;
-  padding: 0.15em 0.3em;
   font-size: 0.9em;
+  padding: 0.15em 0.3px 0.15em 0.3em;
 }
 ol {
   list-style-position: outside;
@@ -130,8 +130,17 @@ cite {
 pre {
   padding: 0.75em;
   border: 1px solid #ccc;
+  border: 1px solid #a2907c;
+  border: 1px solid rgba(0,0,0,0.2);
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  box-shadow: inset 1px 1px 2px rgba(0,0,0,0.1);
+  -moz-box-shadow: inset 1px 1px 2px rgba(0,0,0,0.1);
+  -webkit-box-shadow: inset 1px 1px 2px rgba(0,0,0,0.1);
   background: #ddd;
   margin: 1.5em 0 0;
+  overflow:auto;
 }
 code,
 pre code {  font-family: Consolas,"Lucida Console",Monaco,monospace }
@@ -363,6 +372,7 @@ td {  font-size: 1em }
 /* FORMS */
 .edit form {  width: 940px }
 .edit .small {  width: 400px }
+.edit .body { width:100%; height:300px; padding:10px; font-size:14px; font-family: Consolas,"Lucida Console",Monaco,monospace; }
 /* HEADER */
 #header {
   width: 940px;
@@ -462,6 +472,7 @@ td {  font-size: 1em }
 .post .comments-preview {
   border-top: 3px solid #E1E1E1;
   padding-top: 1em;
+  margin-top: 1em;
 }
 .post .comments-preview a {  color: #A1A1A1 }
 .post .meat {
@@ -489,6 +500,10 @@ td {  font-size: 1em }
   font-size: 2em;
 }
 .post h2 a {  color: #585858 }
+textarea#body {
+  width: 940px;
+  height: 300px
+}
 /* COMMENTS */
 .comments {  margin-left: 150px; float:left; }
 .comments textarea {

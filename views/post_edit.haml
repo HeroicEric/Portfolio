@@ -6,7 +6,7 @@
     %input(type="hidden" name="_method" value="DELETE")
     %input(type="submit" value="Delete")
 
-  %form(action="/post/#{@post.slug}" method="POST")
+  %form.edit(action="/post/#{@post.slug}" method="POST")
     %input(type="hidden" name="_method" value="PUT")
 
     = haml :post_form, :layout => false

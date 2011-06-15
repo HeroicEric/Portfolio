@@ -17,7 +17,8 @@
             %header
               %h1
                 %a(href="/post/#{post.slug}") #{post.title}
-            %p #{post.body}
+            :markdown
+              #{post.body}
             %section.comments-preview
               %a(href="#") #{post.comments.count} Comments
 
