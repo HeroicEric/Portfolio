@@ -1,5 +1,4 @@
-$LOAD_PATH.unshift(Dir.getwd)
-
-require 'portfolio'
+require 'sinatra'
+require './portfolio'
 
 run Sinatra::Application
