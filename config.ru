@@ -1,3 +1,3 @@
-require 'portfolio'
+require './portfolio'
 
-run Portfolio
+run Sinatra::Application
