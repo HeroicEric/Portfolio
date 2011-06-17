@@ -1,3 +1,3 @@
-require 'portfolio.rb'
+require 'portfolio'
 
-run Sinatra::Application
+run Portfolio
