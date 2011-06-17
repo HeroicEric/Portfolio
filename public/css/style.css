@@ -693,7 +693,12 @@ footer {
   border-top: 5px solid #e1e1e1;
   margin-top: 50px;
 }
-footer ul {  list-style: none }
+footer .info {
+  float: left;
+}
+footer .follow {
+  float: right;
+}
 /* Start: Recommended Isotope styles */
 /**** Isotope Filtering ****/
 .isotope-item {  z-index: 2 }
