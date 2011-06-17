@@ -139,7 +139,7 @@ post '/post' do
 end
 
 # View a Post
-get '/post/:slug' do
+get '/:slug' do
   @post = Post.first(:slug => params[:slug])
   @posts = Post.all
   haml :post
@@ -191,7 +191,7 @@ post '/comment' do
 
  	if @post.save
  		status 201 # Created successfully
- 		redirect "/post/#{@post.slug}"
+ 		redirect "/#{@post.slug}"
  	else
  		status 400 # Bad Request(
  		redirect '/'
