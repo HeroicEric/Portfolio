@@ -1,6 +1,15 @@
-- unless @posts.empty?
-  .page.container.cf
-    #blog
+- unless @works.nil?
+  %section.recent-work-container
+    %section.recent-work.cf
+      %ul
+        - @works.each do |w|
+          %li
+            %a(class="work #{w.classification}" href="/work/#{w.slug}")
+              %img(src="#{w.thumb}")
+
+.container.cf
+  #blog
+    - unless @posts.empty?
       - @posts.each do |post|
         %article.post
           %section.meta
@@ -9,8 +18,9 @@
             %header
               %h1
                 %a(href="/post/#{post.slug}") #{post.title}
-            %p #{post.body}
+            :markdown
+              #{post.body}
             %section.comments-preview
               %a(href="#") #{post.comments.count} Comments
 
-    = haml :sidebar
+  = haml :sidebar

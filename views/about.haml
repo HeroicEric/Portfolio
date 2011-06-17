@@ -1,18 +1,9 @@
-.container.page.cf.about
-  %h1 About Me
+.container.page.cf
   %section#about.cf
-    #pic
-      %img(src="http://erickel.ly.s3.amazonaws.com/eric.jpg")
-    #about-body
-      %p
-        My name is Eric Ryan Kelly and I like building things on the computer. Some of my favorite things to build are websites and web applications. I've only recently gotten interested in web development but I've been learning quickly, and loving every minute of it.
-      %p New ideas are always popping into my head and I like spending my free time (not much!) trying to realize those ideas.
-      %ul
-        %li
-          %a(href="http://erickel.ly.s3.amazonaws.com/resume.pdf") Download My Resume
-  #contact
-    %h2 Contact Me
-    %ul
-      %li heroiceric@gmail.com
-      %li (203) 887-2518
-      %li Twitter: @heroiceric
+    %h2 About Me
+    %img.bordered.left(src="http://erickel.ly.s3.amazonaws.com/eric.jpg")
+    %p My name is Eric Ryan Kelly and I like building things on the computer. Some of my favorite things to build are websites and web applications. I love learning about new stuff and keeping up to date with current best practices.
+    %p New ideas are always popping into my head and I like spending my free time trying to realize those ideas.
+    %p
+      %a(href="http://erickel.ly.s3.amazonaws.com/resume.pdf") Download My Resume
+  = haml :sidebar

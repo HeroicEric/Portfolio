@@ -1,6 +1,5 @@
 .page.container.cf
-  %h1 Edit Post
-  %h2 #{@post.title}
+  %h1 Edit #{@post.title}
 
   %form(action="/post/#{@post.slug}" method="post")
     %input(type="hidden" name="_method" value="DELETE")

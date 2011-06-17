@@ -46,16 +46,12 @@ get '/' do
     @works << w
   end
 
-  haml :home
+  haml :blog
 end
 
 get '/about' do
+  @posts = Post.all
   haml :about
-end
-
-get '/blog' do
-	@posts = Post.all
-	haml :blog
 end
 
 ############################
@@ -128,7 +124,7 @@ end
 post '/post' do
 	@post = Post.create(
     :title => params[:title],
-    :slug => Post.make_slug(params[:title]),
+    :slug => params[:slug],
     :body => params[:body]
   )
 
@@ -145,7 +141,6 @@ end
 # View a Post
 get '/post/:slug' do
   @post = Post.first(:slug => params[:slug])
-  puts @post
   @posts = Post.all
   haml :post
 end
@@ -153,7 +148,6 @@ end
 # Edit Post
 get '/post/:slug/edit' do
 	@post = Post.first(:slug => params[:slug])
-	
 	haml :post_edit
 end
 
@@ -203,4 +197,3 @@ post '/comment' do
  		redirect '/blog'
  	end
 end
-

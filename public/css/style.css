@@ -37,6 +37,7 @@ h6 a {
 .container {
   width: 940px;
   margin: 0 auto;
+  margin-bottom: 50px;
 }
 /* HEADINGS */
 h1,
@@ -50,19 +51,20 @@ h6 {
 }
 h1 {
  	font-size: 3.0em;
-  margin-bottom: 30px;
-  color: #585858;
+ 	line-height: 1em;
+  	margin-bottom: 30px;
+  	color: #585858;
 }
 h2 {
   font-size: 2.55em;
   color: #585858;
-  margin: 2em 0 0.5em;
+	margin: 2em 0 0.5em;
 }
 h1+img,
 h2+img {  margin-top: 0.75em }
 h3 {
   font-size: 2.2em;
-  margin-top: 0.375em;
+  margin-top: 1em;
 }
 h4 {
   font-weight: bold;
@@ -106,7 +108,6 @@ li {  margin-bottom: 0.75em }
 p code,
 li code,
 *:not(pre) code {
-  background-color: #ddd;
   font-size: 0.9em;
   padding: 0.15em 0.3px 0.15em 0.3em;
 }
@@ -141,6 +142,7 @@ pre {
   background: #ddd;
   margin: 1.5em 0 0;
   overflow:auto;
+  background: rgba(0,0,0,0.1);
 }
 code,
 pre code {  font-family: Consolas,"Lucida Console",Monaco,monospace }
@@ -381,7 +383,7 @@ td {  font-size: 1em }
 #logo {
 	color: #585858;
   float: left;
-  margin-top: 80px;
+  margin-top: 50px;
   text-decoration: none;
   font-size: 1.4em;
   margin-bottom: 10px;
@@ -434,10 +436,17 @@ td {  font-size: 1em }
   padding: 60px 0 4px;
 }
 /* MAIN */
-.home {  margin-bottom: 50px }
+.home {  margin-bottom: 50px;
+}
 .page {
   border-top: 5px solid #E1E1E1;
-  margin-bottom: 50px;
+}
+.bordered {
+	border: 10px solid #ffffff;
+	margin: 6px;
+ 	-box-shadow: 0px 2px 5px #CCC;
+ 	-webkit-box-shadow: 0px 2px 5px #CCC;
+ 	-moz-box-shadow: 0px 2px 5px #CCC;
 }
 /* RECENT WORK */
 .recent-work-container {
@@ -465,9 +474,9 @@ td {  font-size: 1em }
   width: 720px;
   float: left;
 }
-.post {
+#blog .post {
   float: left;
-  padding-top: 70px;
+  padding-top: 65px;
 }
 .post .comments-preview {
   border-top: 3px solid #E1E1E1;
@@ -490,7 +499,8 @@ td {  font-size: 1em }
   margin-bottom: 0px;
   color: #ffffff;
   background: #585858;
-  padding: 3px 10px;
+  padding: 10px;
+  display: block;
   text-shadow: 0 1px 0 rgba(0,0,0,0.4);
   -webkit-box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
   -moz-box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
@@ -498,6 +508,7 @@ td {  font-size: 1em }
   -moz-border-radius: 3px;
   border-radius: 3px;
   font-size: 2em;
+	text-align: center;
 }
 .post h2 a {  color: #585858 }
 textarea#body {
@@ -581,13 +592,12 @@ textarea#body {
 }
 /* SIDEBAR */
 .sidebar {
-  margin-top: 70px;
   float: right;
   width: 190px;
   font-style: normal;
 }
 .sidebar h2 {
-  margin-top:0px;
+
 }
 /* WORK */
 #work-all header {
@@ -661,20 +671,17 @@ width: 940px;
   -webkit-box-shadow: 0px 2px 5px #CCC;
   -moz-box-shadow: 0px 2px 5px #CCC;
 }
-
-.about {
-	padding-top: 50px;
+/* ABOUT */
+#about {
+	float: left;
+	width: 720px;
 }
-.about #pic {
-  float: left;
-  width: 200px;
+#about img.left {
+	margin-left: 0px;
+	margin-right: 20px;
 }
 #contact {
   float: left;
-}
-#about-body {
-  float: right;
-  width: 740px;
 }
 .about ul {
   list-style: none;
@@ -683,6 +690,7 @@ width: 940px;
 footer {
   clear: both;
   border-top: 5px solid #e1e1e1;
+  margin-top: 50px;
 }
 footer ul {  list-style: none }
 /* Start: Recommended Isotope styles */
@@ -710,6 +718,13 @@ footer ul {  list-style: none }
   transition-property: height, width;
 }
 /* End: Recommended Isotope styles */
+
+.left {
+	float: left;
+}
+.right {
+	float: right;
+}
 
 /* The Magnificent Clearfix: Updated to prevent margin-collapsing on child elements.
    j.mp/bestclearfix */

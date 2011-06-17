@@ -4,6 +4,10 @@
     %br
     %input(type="text" name="title" placeholder="Title Here" value="#{@post.title}")
   %li
+    %label(for="slug") Slug
+    %br
+    %input(type="text" name="slug" placeholder="Slug" value="#{@post.slug}")
+  %li
     %label(for="body") Body
     %br
     %textarea.body(name="body")= @post.body
