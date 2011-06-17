@@ -1,15 +1,13 @@
 .page.container.cf
-  %section.edit
+  %h1 Edit #{@work.title}
 
-    %h1 Edit #{@work.title}
+  %form(action="/work/#{@work.slug}" method="post")
+    %input(type="hidden" name="_method" value="DELETE")
+    %input(type="submit" value="Delete")
 
-    %form(action="/work/#{@work.slug}" method="post")
-      %input(type="hidden" name="_method" value="DELETE")
-      %input(type="submit" value="Delete")
+  %form(action="/work/#{@work.slug}" method="POST")
+    %input(type="hidden" name="_method" value="PUT")
 
-    %form(action="/work/#{@work.slug}" method="POST")
-      %input(type="hidden" name="_method" value="PUT")
+    = haml :work_form
 
-      = haml :work_form
-
-      %input#submit(type="submit" value="Submit") or <a href="/work">cancel</a>
+    %input#submit(type="submit" value="Submit") or <a href="/work">cancel</a>

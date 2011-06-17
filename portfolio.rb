@@ -100,7 +100,7 @@ end
 put '/work/:slug' do
   @work = Work.first(:slug => params[:slug])
 
-  if @work.update(params[:work])
+  if @work.update(params[:thumb])
     status 201
     redirect '/work/' + @work.slug
   else
