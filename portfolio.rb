@@ -175,7 +175,7 @@ delete '/post/:slug' do
 
   if @post.destroy
     status 201
-    redirect "/blog"
+    redirect "/"
   else
     status 400
     redirect '/post/' + @post.slug + '/edit'
