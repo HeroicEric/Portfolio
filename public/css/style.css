@@ -47,6 +47,7 @@ h4,
 h5,
 h6 {
 	font-family: "league-gothic-1","league-gothic-2",sans-serif;
+  font-weight: normal;
 	text-transform: uppercase;
 }
 h1 {
@@ -255,7 +256,6 @@ aside h1,
   font-size: 1.1em;
   line-height: 1.5;
   font-style: normal;
-  font-weight: 900;
   margin-top: 1em;
   padding-top: 0.5em;
   border-top: 3px solid #000;
