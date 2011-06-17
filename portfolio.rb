@@ -130,7 +130,7 @@ post '/post' do
 
 	if @post.save
 		status 201 # Created successfully
-		redirect '/blog'
+		redirect '/'
 	else
 		status 400 # Bad Request(
 		haml :post_new
@@ -194,6 +194,6 @@ post '/comment' do
  		redirect "/post/#{@post.slug}"
  	else
  		status 400 # Bad Request(
- 		redirect '/blog'
+ 		redirect '/'
  	end
 end
