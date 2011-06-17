@@ -516,6 +516,7 @@ textarea#body {
   height: 300px
 }
 /* COMMENTS */
+#disqus_thread { width: 570px; float:right; margin-top:50px; }
 #comments {  margin-left: 150px; float:left; }
 #comments textarea {
   float: left;
