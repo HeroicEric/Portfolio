@@ -1,4 +1,4 @@
 require 'sinatra'
-require './portfolio'
+require 'portfolio'
 
 run Sinatra::Application
