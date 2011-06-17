@@ -1,13 +1,13 @@
-- unless @works.nil?
-  %section.recent-work-container
-    %section.recent-work.cf
-      %ul
-        - @works.each do |w|
-          %li
-            %a(class="work #{w.classification}" href="/work/#{w.slug}")
-              %img(src="#{w.thumb}")
+/- unless @works.nil?
+/  %section.recent-work-container
+/    %section.recent-work.cf
+/      %ul
+/        - @works.each do |w|
+/          %li
+/            %a(class="work #{w.classification}" href="/work/#{w.slug}")
+/              %img(src="#{w.thumb}")
 
-.container.cf
+.page.container.cf
   #blog
     - unless @posts.empty?
       - @posts.each do |post|
