@@ -8,7 +8,12 @@
 %script(src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js")
 %script(src="http://platform.twitter.com/widgets.js")
 %script(src="/js/libs/jquery.isotope.min.js")
+%script(src="/js/libs/jquery.snippet.min.js")
+
 %script(src="/js/script.js")
+
+:javascript
+  $("pre.ruby").snippet("ruby");
 
 %script(type="text/javascript")
   var _gaq = _gaq || [];

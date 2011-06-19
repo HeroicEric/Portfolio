@@ -15,6 +15,10 @@ set :password, 'swordfish'
 
 DataMapper.setup(:default, ENV['DATABASE_URL'] || "sqlite3://#{Dir.pwd}/portfolio.db")
 
+configure :production do
+  require 'newrelic_rpm'
+end
+
 # Finalize/initialize DB
 DataMapper.finalize
 DataMapper::auto_upgrade!
