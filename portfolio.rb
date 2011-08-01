@@ -26,6 +26,9 @@ DataMapper::auto_upgrade!
 helpers do
   def admin? ; request.cookies[settings.username] == settings.token ; end
   def protected! ; halt [401, 'Not Authorized'] unless admin? ; end
+  def page_title
+  	@title || "Eric Kelly"
+  end
 end
 
 get '/admin' do
@@ -146,6 +149,7 @@ end
 get '/:slug' do
   @post = Post.first(:slug => params[:slug])
   @posts = Post.all
+  @title = @post
   haml :post
 end
 
