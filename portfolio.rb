@@ -149,7 +149,7 @@ end
 get '/:slug' do
   @post = Post.first(:slug => params[:slug])
   @posts = Post.all
-  @title = @post
+  @title = @post.title
   haml :post
 end
 
